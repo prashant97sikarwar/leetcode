@@ -9,6 +9,6 @@ class Solution(object):
     def nthPersonGetsNthSeat(self, n):
         if n == 1:
             return 1
-        else:
+        else: 
             return 0.5
         
