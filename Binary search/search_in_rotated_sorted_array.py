@@ -1,5 +1,10 @@
+#Problem Link :- https://leetcode.com/submissions/detail/378915676/
+
+"""You are given an integer array nums sorted in ascending order, and an integer target.
+Suppose that nums is rotated at some pivot unknown to you """
+
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
+    def search(self,nums, target) -> int:
         l, r = 0, len(nums) - 1
         while l <= r:
             mid = (l + r) // 2
