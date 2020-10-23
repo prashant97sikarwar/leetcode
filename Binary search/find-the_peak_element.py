@@ -1,5 +1,5 @@
 class Solution:
-    def findPeakElement(self, nums: List[int]) -> int:
+    def findPeakElement(self, nums):
         l = 0
         r = len(nums)-1
         while l < r:
