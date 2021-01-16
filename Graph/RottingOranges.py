@@ -46,6 +46,53 @@ class Solution(object):
 	if (y+1)<len(grid[0]) and grid[x][y+1]==1:
 		grid[x][y+1] = 2
 		rottenQueue.append((x, y+1))
+  
+  
+# another solution using iterative approach
+
+class mySol:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        queue = []
+        n = len(grid)
+        m = len(grid[0])
+        vis = [[0 for i in range(m)] for i in range(n)]
+        cnt = 0
+        total = 0
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == 2:
+                    vis[i][j] = 1
+                    queue.append((i,j))
+                    cnt += 1
+                if grid[i][j] != 0:
+                    total += 1
+                    
+        def safe(x,y,grid,vis):
+            if x >= 0 and y >= 0 and x < n and y < m and grid[x][y] == 1 and vis[x][y] == 0:
+                return True
+            return False
+        
+        
+        dx = [-1,0,1,0]
+        dy = [0,1,0,-1]
+        time = 0
+        while queue:
+            nxt = []
+            for node in queue:
+                x,y = node[0],node[1]
+                for j in range(4):
+                    if safe(x+dx[j],y+dy[j],grid,vis):
+                        vis[x+dx[j]][y+dy[j]] = 1
+                        grid[x+dx[j]][y+dy[j]] = 2
+                        nxt.append((x+dx[j],y+dy[j]))
+                        cnt += 1
+            queue = nxt
+            if len(queue) > 0:
+                time += 1
+        if cnt == total:
+            return time
+        else:
+            return -1
 
 
 
