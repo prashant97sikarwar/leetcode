@@ -22,3 +22,20 @@ class Solution:
                 deq.pop()                   
             deq.append(i)
         return dp[-1]     
+    
+    
+#Another Approach
+
+class Another_solution:
+    def maxResult(self, nums: List[int], k: int) -> int:
+        import heapq
+        n = len(nums)
+        heap = []
+        for i in range(n-1,-1,-1):
+            while heap and heap[0][1] > i+k:
+                heapq.heappop(heap)
+            maxTill = -nums[i] + (heap[0][0] if heap else 0)
+            heapq.heappush(heap,(maxTill,i))
+            if i == 0:
+                return -maxTill
+            
