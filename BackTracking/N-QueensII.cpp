@@ -10,7 +10,6 @@ using namespace std;
 class Solution {
 public:
     int count;
-    
     bool isvalid(vector<string>& queen,int r, int c){
         for(int i=r;i>=0;--i){
             if (queen[i][c] == 'Q')
