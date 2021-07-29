@@ -17,7 +17,6 @@ public:
 		root = new node('\0');
 	}
 	void addWord(char *w){
-
 		node*temp =root;
 		for(int i=0;w[i]!='\0';i++){
 			char ch = w[i];
